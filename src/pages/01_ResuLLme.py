@@ -19,10 +19,13 @@ if __name__ == '__main__':
         layout="wide",
         initial_sidebar_state="auto",
     )
+    
+    IFRAME = '<iframe src="https://ghbtns.com/github-btn.html?user=IvanIsCoding&repo=ResuLLMe&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>'
+
 
     st.markdown(
-        """
-        # ResumeRight (using ResuLLme)
+        f"""
+        # ResumeRight (using ResuLLme) {IFRAME}
         [![LinkedIn](https://img.shields.io/badge/LinkedIn-Visit-blue)](https://www.linkedin.com/in/bhavyachawla/)
         [![GitHub](https://img.shields.io/badge/GitHub-Visit-blue)](https://github.com/BhavyaChawlaGit)
         
