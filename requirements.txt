@@ -7,6 +7,7 @@ docx2txt
 streamlit-ext==0.1.9
 stqdm==0.0.5
 setuptools==68.2.2
+pdfplumber
 # google-api-python-client google-auth-httplib2 google-auth-oauthlib
 # psycopg2-binary
 # sqlalchemy
