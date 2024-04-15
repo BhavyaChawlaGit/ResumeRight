@@ -63,39 +63,7 @@ uploaded_file = st.file_uploader("Upload your resume(PDF)...", type=["pdf"])
 
 if uploaded_file is not None:
     st.write("PDF Uploaded Successfully")
-    #Postgre connection and execution 
-    
-    file_data = uploaded_file.read()
-    
-    pdf_content = input_pdf_setup(io.BytesIO(file_data))
-    
-    
-    
-    
-    
-
-    conn = psycopg2.connect(dbname="Resume", user="postgres", password="bhavyachawla", host="localhost", port="5432")
-    cur = conn.cursor()
-
-    cur.execute("""
-        CREATE TABLE IF NOT EXISTS resumes (
-            id SERIAL PRIMARY KEY,
-            pdf_data BYTEA
-        )
-    """)
-
-
-
-
-    cur.execute("INSERT INTO resumes (pdf_data) VALUES (%s)", (psycopg2.Binary(file_data),))
-
-    # Close communication with the database
-    conn.commit()
-    cur.close()
-    conn.close()
-
-    # st.write(file_data)
-
+    pdf_content = input_pdf_setup(uploaded_file)
 else:
     pdf_content = None
     
