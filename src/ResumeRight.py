@@ -11,8 +11,8 @@ import psycopg2
 
 
 # Replace 'your-api-key' with your actual API key
-#openai.api_key = "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"
-openai.api_key = st.secrets["OPENAI_API_KEY"]
+openai.api_key = "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"
+#openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 
 
