@@ -45,8 +45,8 @@ if __name__ == '__main__':
 
         # If the OpenAI API Key is not set as an environment variable, prompt the user for it
         # openai_api_key = os.getenv("OPENAI_API_KEY")
-        openai.api_key = "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"
-        #openai.api_key = st.secrets["OPENAI_API_KEY"]
+        # openai.api_key = "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"
+        openai.api_key = st.secrets["OPENAI_API_KEY"]
         
         # if not openai_api_key:
         #     openai_api_key = st.text_input(
