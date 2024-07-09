@@ -1,6 +1,5 @@
 #from dotenv import load_dotenv
 import os
-import io
 import base64
 import streamlit as st
 import io
