@@ -27,31 +27,33 @@ def get_gpt3_response(input, pdf_content, prompt):
     return response['choices'][0]['message']['content']
 
     #  You are an advanced AI acting as a virtual consultant for job applicants. Your task is to analyze resumes and job descriptions to provide a detailed compatibility assessment. This assessment should be structured as a professional narrative that smoothly transitions between the applicants strengths, areas for improvement, and tailored recommendations. Your output must adhere to high standards of clarity and professionalism, mirroring the quality expected in top-tier consultancy reports.
-# def input_pdf_setup(uploaded_file):
-#     # if uploaded_file is not None:
-#     #     # # Convert the PDF to text
-#     #     # with pdfplumber.open(uploaded_file) as pdf:
-#     #     #     first_page = pdf.pages[0]
-#     #     #     text = first_page.extract_text()
-
-#     pdf_bytes = uploaded_file.read()
-#     # Use pdfplumber with a file-like object created from pdf_bytes
-#     with pdfplumber.PDF(io.BytesIO(pdf_bytes)) as pdf:
-#         first_page = pdf.pages[0]
-#         text = first_page.extract_text()
-#     return text
-
 def input_pdf_setup(uploaded_file):
-    pdf_bytes = uploaded_file.read()
-    try:
-        # Use pdfplumber with a file-like object created from pdf_bytes
-        with pdfplumber.PDF(io.BytesIO(pdf_bytes)) as pdf:
+    if uploaded_file is not None:
+        # Convert the PDF to text
+        with pdfplumber.open(uploaded_file) as pdf:
             first_page = pdf.pages[0]
             text = first_page.extract_text()
-    except ValueError as e:
-        print(f"Encountered an error while extracting text: {e}")
-        text = None  # Handle the error as appropriate for your application
-    return text
+
+    # pdf_bytes = uploaded_file.read()
+    # # Use pdfplumber with a file-like object created from pdf_bytes
+    # with pdfplumber.PDF(io.BytesIO(pdf_bytes)) as pdf:
+    #     first_page = pdf.pages[0]
+    #     text = first_page.extract_text()
+    # return text
+
+# Provisioned to be used with pdfplumber==0.11.2, currently we are on pdfplumber==0.11.0
+
+# def input_pdf_setup(uploaded_file):
+#     pdf_bytes = uploaded_file.read()
+#     try:
+#         # Use pdfplumber with a file-like object created from pdf_bytes
+#         with pdfplumber.PDF(io.BytesIO(pdf_bytes)) as pdf:
+#             first_page = pdf.pages[0]
+#             text = first_page.extract_text()
+#     except ValueError as e:
+#         print(f"Encountered an error while extracting text: {e}")
+#         text = None  # Handle the error as appropriate for your application
+#     return text
 
 st.set_page_config(
         page_title="ResumeRight",
